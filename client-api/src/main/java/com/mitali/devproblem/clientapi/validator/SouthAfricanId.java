@@ -1,4 +1,4 @@
-package com.mitali.devproblem.clientapi.annotation;
+package com.mitali.devproblem.clientapi.validator;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -11,9 +11,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({FIELD})
 @Retention(RUNTIME)
 @Constraint(
-        validatedBy = {UniqueIdValidator.class}
+        validatedBy = {SouthAfricanIdValidator.class}
 )
-public @interface UniqueId {
+public @interface SouthAfricanId {
 
     String message();
 

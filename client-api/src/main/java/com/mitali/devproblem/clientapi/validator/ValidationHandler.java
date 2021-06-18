@@ -1,4 +1,4 @@
-package com.mitali.devproblem.clientapi.client;
+package com.mitali.devproblem.clientapi.validator;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

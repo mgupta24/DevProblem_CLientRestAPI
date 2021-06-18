@@ -1,12 +1,9 @@
 package com.mitali.devproblem.clientapi.client;
 
-import com.mitali.devproblem.clientapi.annotation.SouthAfricanId;
-import com.mitali.devproblem.clientapi.annotation.UniqueId;
-import com.mitali.devproblem.clientapi.annotation.UniqueMobileNumber;
+import com.mitali.devproblem.clientapi.validator.SouthAfricanId;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 public class Client {
 
@@ -16,11 +13,9 @@ public class Client {
     @NotEmpty(message="Last Name can not be empty")
     private String lastName;
 
-    @UniqueMobileNumber(message = "This Mobile Number already exists")
     private String mobileNumber;
 
     @NotNull(message="Id can not be null")
-    @UniqueId(message = "This Client Id already exists")
     @SouthAfricanId(message = "This is invalid South African id.Please enter correct format.")
     private String id;
 

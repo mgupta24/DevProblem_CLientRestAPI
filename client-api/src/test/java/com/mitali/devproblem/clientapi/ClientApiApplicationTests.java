@@ -43,12 +43,12 @@ class ClientApiApplicationTests {
 		Client mockClient = new Client();
 		mockClient.setFirstName("Aditi");
 		mockClient.setLastName("Singh");
-		mockClient.setId("1234567891234");
+		mockClient.setId("2001014800086");
 		mockClient.setMobileNumber("8345221155");
 		mockClient.setAddress("Kolkata");
 
 		String inputJson = this.mapToJson(mockClient);
-		String Uri = "/client/create";
+		String Uri = "/clients/create";
 
 		Mockito.when(clientService.createClient(Mockito.any(Client.class))).thenReturn(mockClient);
 
@@ -71,12 +71,12 @@ class ClientApiApplicationTests {
 		Client mockClient = new Client();
 		mockClient.setFirstName("Aditi");
 		mockClient.setLastName("Singh");
-		mockClient.setId("1234567891234");
+		mockClient.setId("2001075800082");
 		mockClient.setMobileNumber("8345221155");
 		mockClient.setAddress("Kolkata");
 
 		String inputJson = this.mapToJson(mockClient);
-		String Uri = "/client/update/1234567891234";
+		String Uri = "/clients/update/7801014800084";
 
 		Mockito.when(clientService.updateClient(Mockito.any(Client.class), Mockito.anyString())).thenReturn(mockClient);
 
@@ -100,7 +100,7 @@ class ClientApiApplicationTests {
 		Client mockClient = new Client();
 		mockClient.setFirstName("Aditi");
 		mockClient.setLastName("Singh");
-		mockClient.setId("1234567891235");
+		mockClient.setId("2601075800089");
 		mockClient.setMobileNumber("8345221155");
 		mockClient.setAddress("Kolkata");
 
@@ -129,12 +129,12 @@ class ClientApiApplicationTests {
 		Client mockClient = new Client();
 		mockClient.setFirstName("Aditi");
 		mockClient.setLastName("Singh");
-		mockClient.setId("1234567891235");
+		mockClient.setId("9505074800086");
 		mockClient.setMobileNumber("8345221155");
 		mockClient.setAddress("Kolkata");
 
 		String inputJson = this.mapToJson(mockClient);
-		String Uri = "/clients/id/1234567891235";
+		String Uri = "/clients/id/7801014800084";
 
 		Mockito.when(clientService.getClientById(Mockito.anyString())).thenReturn(mockClient);
 
@@ -157,7 +157,7 @@ class ClientApiApplicationTests {
 		Client mockClient = new Client();
 		mockClient.setFirstName("Aditi");
 		mockClient.setLastName("Singh");
-		mockClient.setId("1234567891235");
+		mockClient.setId("9505074800086");
 		mockClient.setMobileNumber("8345221155");
 		mockClient.setAddress("Kolkata");
 
@@ -185,12 +185,12 @@ class ClientApiApplicationTests {
 		Client mockClient = new Client();
 		//mockClient.setFirstName("Aditi");
 		mockClient.setLastName("Singh");
-		mockClient.setId("1234567891234");
+		mockClient.setId("9505074800086");
 		mockClient.setMobileNumber("8345221155");
 		mockClient.setAddress("Kolkata");
 
 		String inputJson = this.mapToJson(mockClient);
-		String Uri = "/client/create";
+		String Uri = "/clients/create";
 
 		String expectedJson = "{\"firstName\":\"First Name can not be empty\"}";
 
@@ -215,12 +215,12 @@ class ClientApiApplicationTests {
 		Client mockClient = new Client();
 		mockClient.setFirstName("Aditi");
 		//mockClient.setLastName("Singh");
-		mockClient.setId("1234567891234");
+		mockClient.setId("9505074800086");
 		mockClient.setMobileNumber("8345221155");
 		mockClient.setAddress("Kolkata");
 
 		String inputJson = this.mapToJson(mockClient);
-		String Uri = "/client/create";
+		String Uri = "/clients/create";
 
 		String expectedJson = "{\"lastName\":\"Last Name can not be empty\"}";
 
@@ -250,7 +250,7 @@ class ClientApiApplicationTests {
 		mockClient.setAddress("Kolkata");
 
 		String inputJson = this.mapToJson(mockClient);
-		String Uri = "/client/create";
+		String Uri = "/clients/create";
 
 		String expectedJson = "{\"id\":\"Id can not be null\"}";
 
@@ -280,9 +280,9 @@ class ClientApiApplicationTests {
 		mockClient.setAddress("Kolkata");
 
 		String inputJson = this.mapToJson(mockClient);
-		String Uri = "/client/create";
+		String Uri = "/clients/create";
 
-		String expectedJson = "{\"id\":\"This is invalid South African id.Please enter correct format.\"}";
+		String expectedJson = "Invalid Id: Length must be 13 digits.";
 
 		Mockito.when(clientService.createClient(Mockito.any(Client.class))).thenReturn(mockClient);
 

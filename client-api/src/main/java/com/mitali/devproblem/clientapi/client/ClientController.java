@@ -32,12 +32,12 @@ public class ClientController {
         return clientService.getClientByMobileNumber(mobileNumber);
     }
 
-    @RequestMapping(method= RequestMethod.POST, value= "/client/create")
+    @RequestMapping(method= RequestMethod.POST, value= "/clients/create")
     public Client createClient(@Valid @RequestBody Client client){
         return clientService.createClient(client);
     }
 
-    @RequestMapping(method= RequestMethod.PUT, value= "/client/update/{id}")
+    @RequestMapping(method= RequestMethod.PUT, value= "/clients/update/{id}")
     public Client updateClient(@Valid @RequestBody Client client, @PathVariable String id){
         return clientService.updateClient(client,id);
     }
