@@ -16,7 +16,7 @@ public class Client {
     private String mobileNumber;
 
     @NotNull(message="Id can not be null")
-    @SouthAfricanId(message = "This is invalid South African id.Please enter correct format.")
+    @SouthAfricanId(message = "")
     private String id;
 
     private String address;

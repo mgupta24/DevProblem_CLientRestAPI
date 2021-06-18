@@ -65,11 +65,24 @@ public class ClientServiceImpl implements ClientService {
         Client c = Optional.ofNullable(getClientById(id))
                 .orElseThrow(() -> new DataNotFoundException("Client does not exist for the given id Number"));
 
-        Optional.ofNullable(client.getMobileNumber()).ifPresent(mobileNumber -> {
-            if(Optional.of(!client.getMobileNumber().equals(c.getMobileNumber())).orElse(true))
-                if (Optional.of(!isMobileNumberExist(mobileNumber)).orElseThrow(()->new InvalidMobileNumberException("Duplicate Mobile Number : A client with this mobile number already exists,Enter other mobile number.")));
-                  c.setMobileNumber(client.getMobileNumber());
-        });
+        if(client.getMobileNumber()!=null) {
+
+            if (c.getMobileNumber() == null) {
+
+                if (!isMobileNumberExist(client.getMobileNumber()))
+                    c.setMobileNumber(client.getMobileNumber());
+                else
+                    throw new InvalidMobileNumberException("Duplicate Mobile Number : A client with this mobile number already exists.");
+
+            } else {
+                if (!client.getMobileNumber().equals(c.getMobileNumber())) {
+                    if (!isMobileNumberExist(client.getMobileNumber()))
+                        c.setMobileNumber(client.getMobileNumber());
+                    else
+                        throw new InvalidMobileNumberException("Duplicate Mobile Number : A client with this mobile number already exists.");
+                }
+            }
+        }
              c.setFirstName(client.getFirstName());
              c.setLastName(client.getLastName());
              c.setAddress(client.getAddress());
